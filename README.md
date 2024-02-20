@@ -2,11 +2,10 @@
 
 ## Test Environment
 
-This repository includes the pre-test for the LFX Mentorship (Mar-May, 2024) Proposal #3170: Integrate whisper.cpp as a new WASI-NN backend. You can find more details here:
+This repository includes the pre-test for the LFX Mentorship (Mar-May, 2024) Proposal #3170: Integrate whisper.cpp as a new WASI-NN backend. You can find more details here: https://github.com/ToSeven/WasmEdge-2024-01-Pre-test
 
 here is my computer config.
-
-![](/Users/heng/Downloads/pre-test/pic/2024-02-20-15-16-51-image.png)
+![](https://github.com/ToSeven/WasmEdge-2024-01-Pre-test/blob/main/pic/2024-02-20-15-16-51-image.png)
 
 ## Section one - Whisper.cpp
 
@@ -30,13 +29,11 @@ next, build the whisper.cpp, Openblas can supports the  accelerate of inference 
 
 > WHISPER_OPENBLAS=1 make steam -j4
 
-
-
 ### Real-time audio input example
 
 > ./stream -m ./models/ggml-base.en.bin -t 8 --step 500 --length 5000
 
-![](/Users/heng/Downloads/pre-test/pic/2024-02-20-16-39-57-image.png)
+![](https://github.com/ToSeven/WasmEdge-2024-01-Pre-test/blob/main/pic/2024-02-20-16-39-57-image.png)
 
 ## Section 2 - WasmEdge
 
@@ -61,7 +58,7 @@ With the help of this guide, I  build WasmEdge with WASI-NN llama.cpp backend.
 > 
 > .
 
-![](/Users/heng/Downloads/pre-test/pic/2024-02-20-16-38-48-image.png)
+![](https://github.com/ToSeven/WasmEdge-2024-01-Pre-test/blob/main/pic/2024-02-20-16-38-48-image.png)
 
 build and install
 
@@ -72,7 +69,7 @@ build and install
 
 - get the pre-built WASM application llama/wasmedge-ggml-llama.wasm, provided by this [repository](https://github.com/second-state/WasmEdge-WASINN-examples/blob/master/wasmedge-ggml/README.md).
 
-- 1. downloaded the llama model:  `$ curl -LO https://huggingface.co/TheBloke/Llama-2-7b-Chat-GGUF/resolve/main/llama-2-7b-chat.Q5_K_M.gguf`
+- downloaded the llama model:  `$ curl -LO https://huggingface.co/TheBloke/Llama-2-7b-Chat-GGUF/resolve/main/llama-2-7b-chat.Q5_K_M.gguf`
 
 ### Execute the WASM
 
@@ -80,6 +77,4 @@ build and install
 >   --nn-preload default:GGML:AUTO:llama-2-7b-chat.Q5_K_M.gguf \
 >   wasmedge-ggml-llama.wasm default
 
-![](/Users/heng/Downloads/pre-test/pic/2024-02-20-16-46-36-image.png)
-
-
+![](https://github.com/ToSeven/WasmEdge-2024-01-Pre-test/blob/main/pic/2024-02-20-16-46-36-image.png)
